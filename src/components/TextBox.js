@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-const TextBox = () => {
+const TextBox = ({onTextSubmit}) => {
 
     //Set state for text entered into box
     const [text, setText] = useState("");
@@ -18,6 +18,8 @@ const TextBox = () => {
         if (!textToSubmit) {
             return
         }
+        onTextSubmit(text);
+        console.log(textToSubmit);
         //Reset text field to default value
         setText("");
     }
@@ -28,7 +30,7 @@ const TextBox = () => {
             <h2>Enter yer text, landlubber!</h2>
             <form 
                 className="text-form"
-                //onSubmit={handleFormSubmit}
+                onSubmit={handleFormSubmit}
             >
             <input
                 type="text"
@@ -38,7 +40,6 @@ const TextBox = () => {
             />
             <button
                 type="submit" 
-                value="Post"
             >Submit</button>
             </form>
         </>
