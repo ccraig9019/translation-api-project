@@ -23,7 +23,7 @@ const TranslatorContainer = () => {
 
     const getTranslation = () => {
         const encodedText = encodeURIComponent(text);
-        fetch(`https://api.funtranslations.com/translate/yoda.json?text=${encodedText}`)
+        fetch(`https://api.funtranslations.com/translate/${translator}.json?text=${encodedText}`)
             .then(res => res.json())
             .then(data => setTranslation(data))
             //.then(console.log(json))
