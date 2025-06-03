@@ -27,7 +27,7 @@ const TextBox = ({onTextSubmit}) => {
 
     return (
         <>
-            <h2>Enter yer text, landlubber!</h2>
+            <h2>Enter your text and submit</h2>
             <form 
                 className="text-form"
                 onSubmit={handleFormSubmit}

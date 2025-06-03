@@ -38,7 +38,7 @@ const TranslatorContainer = () => {
     return (
         <div>
         <header>
-        <h1>Pirate translator</h1>
+        <h1>Nerd translator</h1>
         </header>
         <TranslatorSelector onTranslatorSelect={(translator) => changeTranslator(translator)}/>
         <TextBox onTextSubmit={(text) => submitText(text)}/>
