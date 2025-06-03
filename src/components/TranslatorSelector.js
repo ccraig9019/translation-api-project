@@ -2,12 +2,10 @@ import React, {useState} from "react";
 
 const TranslatorSelector = ({onTranslatorSelect}) => {
 
-   const [selectedTranslator, setSelectedTranslator] = useState("");
-    
+       
    const handleChange = (event) => {
-    setSelectedTranslator(event.target.value);
+    onTranslatorSelect(event.target.value);
     console.log("Selected translator: ", event.target.value);
-    onTranslatorSelect(selectedTranslator);
    }
 
     return (
