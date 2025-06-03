@@ -10,8 +10,8 @@ const TranslatorSelector = ({onTranslatorSelect}) => {
 
     return (
             <div>
-                <label for="translator">Select a translator:</label>
-                <select onChange={handleChange} name="translator" id="translator">
+                <label for="translator"><h3>Select a translator: </h3></label>
+                <select className="box" onChange={handleChange} name="translator" id="translator">
                     <option value="">Please select a translator</option>
                     <option value="pirate" id="pirate">Pirate speak</option>
                     <option value="gungan" id="gungan">Gungan</option>

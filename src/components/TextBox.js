@@ -34,6 +34,7 @@ const TextBox = ({onTextSubmit}) => {
             >
             <input
                 type="text"
+                className="box"
                 placeholder="Enter text to be translated"
                 value={text}
                 onChange={handleTextChange}
