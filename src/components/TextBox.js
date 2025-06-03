@@ -21,7 +21,7 @@ const TextBox = ({onTextSubmit}) => {
         onTextSubmit(text);
         console.log(textToSubmit);
         //Reset text field to default value
-        setText("");
+        //setText("");
     }
 
 

@@ -6,8 +6,8 @@ import TranslatorSelector from "../components/TranslatorSelector"
 
 
 const TranslatorContainer = () => {
-    const [text, setText] = useState(" ")
-    const [translation, setTranslation] = useState(" ")
+    const [text, setText] = useState("")
+    const [translation, setTranslation] = useState("")
     const [translator, setTranslator] = useState("")
     
     const submitText = (submittedText) => {
@@ -15,32 +15,29 @@ const TranslatorContainer = () => {
         console.log({text})
     }
 
-    const changeTranslator = () => {
-        let translationEngine = document.getElementById("translator").value;
-        setTranslator(translationEngine);
-        console.log(translator);
-    }
-
+ 
     const getTranslation = () => {
+        if (!text || !translator) return;
         const encodedText = encodeURIComponent(text);
         fetch(`https://api.funtranslations.com/translate/${translator}.json?text=${encodedText}`)
             .then(res => res.json())
             .then(data => setTranslation(data))
             //.then(console.log(json))
+            .then(console.log("API call made"))
     }
 
     useEffect(() => {
         getTranslation();
-        //console.log(translation);
-        changeTranslator();       
-    }, [text]);
+        //console.log(translation);       
+    }, [text, translator]);
+
 
     return (
         <div>
         <header>
         <h1>Nerd translator</h1>
         </header>
-        <TranslatorSelector onTranslatorSelect={(translator) => changeTranslator(translator)}/>
+        <TranslatorSelector onTranslatorSelect={(translator) => setTranslator(translator)}/>
         <TextBox onTextSubmit={(text) => submitText(text)}/>
         <h3>Translation:</h3>
         <hr />
